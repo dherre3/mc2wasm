@@ -17,39 +17,33 @@ public class ByteConversion {
         byteArray = new byte[8];
         long lng = Double.doubleToLongBits(d);
         for(int i = 0; i < 8; i++) byteArray[i] = (byte)((lng >> ((7 - i) * 8)) & 0xff);
-//        hexString = setByteString();
     }
     public ByteConversion(float d)
     {
         byteArray = new byte[4];
         long lng = Float.floatToRawIntBits(d);
         for(int i = 0; i < 4; i++) byteArray[i] = (byte)((lng >> ((3 - i) * 8)) & 0xff);
-//        hexString = setByteString();
     }
     public ByteConversion(int d)
     {
         byteArray = ByteBuffer.allocate(4).putInt(d).array();
-//        hexString = setByteString();
     }
     public ByteConversion(byte d)
     {
         byteArray = new byte[1];
         byteArray[0] = (byte)(d & 0xff);
-//        hexString = setByteString();
     }
     public ByteConversion(short d)
     {
         byteArray = new byte[2];
         byteArray[0] = (byte)(d >> 8 & 0xff);
         byteArray[1] = (byte)(d & 0xff);
-//        hexString = setByteString();
     }
     public ByteConversion(char d)
     {
         byteArray = new byte[2];
         byteArray[0] = (byte)(d >> 8 & 0xff);
         byteArray[1] = (byte)(d & 0xff);
-//        hexString = setByteString();
     }
     public String toHexString(){
         char []arr = bytesToHex(byteArray);
@@ -70,6 +64,17 @@ public class ByteConversion {
             hex[i * 2 + 1] = kDigits[lowIndex];
         }
         return hex;
+    }
+    public static void main(String[] args)
+    {
+        int a = -123123;
+        ByteConversion s;
+        s = new ByteConversion(a);
+        System.out.println(s.toString());
+        int b = 123123;
+        ByteConversion sn;
+        sn = new ByteConversion(b);
+        System.out.println(sn.toString());
     }
 
     public String toString() {

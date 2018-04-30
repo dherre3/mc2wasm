@@ -35,12 +35,14 @@
       <file leaf-file-name="ByteConversion.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/matwably/util/ByteConversion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="75" column="16" lean-forward="false" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+            <state relative-caret-position="260">
+              <caret line="69" column="8" lean-forward="false" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2342#2343#0" expanded="true" />
-                <element signature="e#2382#2383#0" expanded="true" />
+                <element signature="e#853#854#0" expanded="true" />
+                <element signature="e#921#922#0" expanded="true" />
+                <element signature="e#2421#2422#0" expanded="true" />
+                <element signature="e#2461#2462#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,8 +51,8 @@
       <file leaf-file-name="ByteConversionTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/ByteConversionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+            <state relative-caret-position="182">
+              <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,16 +107,6 @@
                 <element signature="e#25486#25487#0" expanded="true" />
                 <element signature="e#25520#25521#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bubble.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/semantics/bubble.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -576,33 +568,7 @@
             <path>
               <item name="matwably" type="b2602c69:ProjectViewProjectNode" />
               <item name="Mc2Wasm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="matwably" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mc2Wasm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="matwably" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mc2Wasm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="matwably" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mc2Wasm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="matwably" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mc2Wasm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="design" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -813,41 +779,44 @@
       <option name="presentableId" value="Default" />
       <updated>1522243951914</updated>
       <workItem from="1522243956309" duration="22651000" />
-      <workItem from="1524938558269" duration="13771000" />
+      <workItem from="1524938558269" duration="14870000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 23m 29s.xml">
+    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 49m 55s.xml">
       <configuration name="ByteConversionTest.testingConstructors" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 24m 32s.xml">
+    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 57m 54s.xml">
       <configuration name="ByteConversionTest.testingConstructors" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 25m 14s.xml">
+    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 58m 22s.xml">
       <configuration name="ByteConversionTest.testingConstructors" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 25m 51s.xml">
+    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 58m 31s.xml">
       <configuration name="ByteConversionTest.testingConstructors" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 26m 06s.xml">
+    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 58m 45s.xml">
       <configuration name="ByteConversionTest.testingConstructors" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 26m 42s.xml">
+    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 59m 03s.xml">
       <configuration name="ByteConversionTest.testingConstructors" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 27m 01s.xml">
+    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 59m 24s.xml">
       <configuration name="ByteConversionTest.testingConstructors" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 27m 10s.xml">
+    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 59m 32s.xml">
       <configuration name="ByteConversionTest.testingConstructors" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 32m 13s.xml">
+    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 59m 45s.xml">
+      <configuration name="ByteConversionTest.testingConstructors" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ByteConversionTest_testingConstructors - 2018.04.30 at 00h 59m 56s.xml">
       <configuration name="ByteConversionTest.testingConstructors" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36422000" />
+    <option name="totallyTimeSpent" value="37521000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -860,6 +829,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933334" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -880,7 +850,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30933332" sideWeight="0.496875" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30933332" sideWeight="0.496875" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22890624" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1119,17 +1089,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/design/Mc2Wasm-wiki/april4-9-presentation.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/semantics/bubble.wasm">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1238,6 +1197,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/design/Mc2Wasm-wiki/april4-9-presentation.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="261">
+            <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/MainTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1250,20 +1220,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/matwably/util/ByteConversion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="75" column="16" lean-forward="false" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
+        <state relative-caret-position="260">
+          <caret line="69" column="8" lean-forward="false" selection-start-line="69" selection-start-column="8" selection-end-line="69" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2342#2343#0" expanded="true" />
-            <element signature="e#2382#2383#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#921#922#0" expanded="true" />
+            <element signature="e#2421#2422#0" expanded="true" />
+            <element signature="e#2461#2462#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ByteConversionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        <state relative-caret-position="182">
+          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
