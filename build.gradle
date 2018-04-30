@@ -2,18 +2,41 @@ group 'mclab'
 version '1.0'
 
 apply plugin: 'java'
+//apply plugin: 'jastadd'
 
 sourceCompatibility = 1.8
 repositories {
     mavenCentral()
 }
+//buildscript {
+//    repositories.mavenCentral()
+//    dependencies {
+//        classpath 'org.jastadd:jastaddgradle:1.13.0'
+//    }
+//}
 //TODO Deal automatically with downloading the mclab-core dependency
 repositories {
     flatDir {
         dirs 'lib/mclab-core/languages/Natlab/McLabCore.jar'
     }
 }
+//jastadd {
+//    configureModuleBuild()
+//    modules "jastadd_modules"
+//
+//    module = "statemachine"
+//
+//    astPackage = "AST"
+//
+////    genDir = "gen"
+////    scanner.genDir = "src/gen/AST"
+////    parser.name = "StateMachineParser"
+////    parser.genDir = "src/gen/AST"
+//}
 dependencies {
+    // https://mvnrepository.com/artifact/org.jastadd/jastaddgradle
+//    compile group: 'org.jastadd', name: 'jastaddgradle', version: '1.13.0'
+
     // https://mvnrepository.com/artifact/com.beust/jcommander
     compile group: 'com.beust', name: 'jcommander', version: '1.7'
     compile name: 'McLabCore'

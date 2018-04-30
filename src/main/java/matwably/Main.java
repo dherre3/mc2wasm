@@ -12,11 +12,11 @@ import natlab.tame.valueanalysis.aggrvalue.AggrValue;
 import natlab.tame.valueanalysis.basicmatrix.BasicMatrixValue;
 import natlab.toolkits.filehandling.FileFile;
 import natlab.toolkits.filehandling.GenericFile;
+import natlab.toolkits.path.FileEnvironment;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.InputMismatchException;
-import java.util.List;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -28,9 +28,8 @@ public class Main {
             optParse = new JCommander(opts, argv);
         }catch(ParameterException e)
         {
-            System.err.println( e.getMessage());
+            System.err.println(e.getMessage());
             System.exit(1);
-
         }
 
         optParse.setProgramName("MatWably");
@@ -43,7 +42,18 @@ public class Main {
         String output_file = opts.output_file;
         ArrayList<String> args_entry_function = opts.getEntryFunctionArgs(optParse);
         ArrayList<GenericFile> generic_files = opts.getFunctionFiles();
+        Generator generator = new Generator(generic_files);
+        ByteBuffer byteBuffer = Charset.forName("UTF-8").encode("david");
+//        for(byte b : byteBuffer.array()){
+//            System.out.println(b);
+//        }
+        Double a = new Double(1321313);
+        double d = 1321313.99999;
+        byte[] output = new byte[8];
+        long lng = Double.doubleToLongBits(d);
+        for(int i = 0; i < 8; i++) output[i] = (byte)((lng >> ((7 - i) * 8)) & 0xff);
 
+//        System.out.println(output);
 
     }
 
@@ -81,7 +91,7 @@ final class CommandLineOptions {
 
         if(!this.args.isEmpty() && (!this.args.contains("'[")|| !this.args.contains("]'")))
         {
-            System.err.println("Invalid format for arguments to entry function, check usage\n");
+            System.err.println("Error: Invalid format for arguments to entry function, check usage\n");
             commander.usage();
             System.exit(1);
         }
@@ -101,17 +111,26 @@ final class CommandLineOptions {
         ArrayList<GenericFile> gen_list = new ArrayList<>();
         if(this.input_files.size() == 0)
         {
-            System.err.println("No input files");
+            System.err.println("Error: No input files");
             System.exit(0);
         }
+        HashSet<String> set_names = new HashSet<>();
         this.input_files.forEach((file_path)->{
             GenericFile gen_file = GenericFile.create(file_path);
-            if(!gen_file.exists())
+            if(!set_names.contains(gen_file.getName()))
             {
-                System.err.printf("Path to Matlab file %s does not exist, \n",file_path);
+                if(!gen_file.exists())
+                {
+                    System.err.printf("Error: Path to Matlab file %s does not exist, \n",file_path);
+                    System.exit(0);
+                }
+
+                gen_list.add(gen_file);
+            }else{
+                System.err.printf("Error: Two of the input files contain name, %s\n",gen_file.getName());
                 System.exit(0);
             }
-            gen_list.add(gen_file);
+
         });
         return gen_list;
     }

@@ -1,0 +1,13 @@
+module("statemachine") {
+    java {
+        basedir "."
+        include "main/**/*.java"
+        include "gen/**/*.java"
+    }
+
+    jastadd {
+        include "spec/*.ast"
+        include "spec/*.jadd"
+        include "spec/*.jrag"
+    }
+}
