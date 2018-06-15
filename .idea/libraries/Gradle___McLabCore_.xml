@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: :McLabCore:">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/mclab-core/languages/Natlab/McLabCore.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
