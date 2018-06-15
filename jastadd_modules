@@ -1,4 +1,4 @@
-module("statemachine") {
+module("matwably") {
     java {
         basedir "."
         include "main/**/*.java"
@@ -6,8 +6,8 @@ module("statemachine") {
     }
 
     jastadd {
-        include "spec/*.ast"
-        include "spec/*.jadd"
-        include "spec/*.jrag"
+        include "src/spec/*.ast"
+        include "src/spec/*.jadd"
+        include "src/spec/*.jrag"
     }
 }

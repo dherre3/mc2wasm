@@ -1,7 +1,6 @@
 <component name="libraryTable">
   <library name="Gradle: com.beust:jcommander:1.7">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/Could not find com.beust:jcommander:1.7." />
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.beust/jcommander/1.7/957467af0d274262d2e40a4867ec1ee78a6e12f/jcommander-1.7.jar!/" />
     </CLASSES>
     <JAVADOC />

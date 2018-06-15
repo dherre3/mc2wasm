@@ -10,6 +10,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="matwably_main" />
+    <orderEntry type="library" name="Gradle: org.jastadd:jastaddgradle:1.13.0" level="project" />
     <orderEntry type="library" name="Gradle: com.beust:jcommander:1.7" level="project" />
     <orderEntry type="library" name="Gradle: :McLabCore:" level="project" />
     <orderEntry type="library" name="Gradle: junit:junit:4.12" level="project" />

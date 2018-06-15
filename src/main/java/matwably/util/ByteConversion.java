@@ -1,10 +1,6 @@
 package matwably.util;
 
 import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class ByteConversion {
     public byte[] byteArray;
@@ -64,17 +60,6 @@ public class ByteConversion {
             hex[i * 2 + 1] = kDigits[lowIndex];
         }
         return hex;
-    }
-    public static void main(String[] args)
-    {
-        int a = -123123;
-        ByteConversion s;
-        s = new ByteConversion(a);
-        System.out.println(s.toString());
-        int b = 123123;
-        ByteConversion sn;
-        sn = new ByteConversion(b);
-        System.out.println(sn.toString());
     }
 
     public String toString() {
