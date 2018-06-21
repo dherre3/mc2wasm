@@ -1,0 +1,197 @@
+import java.lang.StringBuffer;
+import java.util.stream.IntStream;
+
+aspect PrettyPrinter {
+    interface IASTNode {
+        public void accept(ASTNodeVisitor visitor);
+
+    }
+    TopDeclaration implements IASTNode;
+    interface ASTNodeVisitor {
+        public void visit(Module mod);
+        public void visit(WasmFunction func);
+        public void visit(Table tab);
+        public void visit(Global global);
+        public void visit(ElementSegment element_segment);
+        public void visit(Memory mem);
+        public void visit(DataSegment data_seg);
+        public void visit(Export exp);
+        public void visit(Import imp);
+        public void visit(Start imp);
+        public void visit(FuncType type);
+        public void visit(TypeUse type);
+        public void visit(ValueType type);
+
+    }
+    TypeUse implements IASTNode;
+
+
+    public abstract String ConstantInstruction.pp();
+    public String Global.pp() {
+        this.getInit().getInstructionsList().forEach((Instruction a)->{
+            //return a.pp();
+        });
+        return "(global (";
+    }
+    public void Start.accept(ASTNodeVisitor visitor){
+        visitor.visit(this);
+    }
+    public void Global.accept(ASTNodeVisitor visitor){
+        visitor.visit(this);
+    }
+    public void Module.accept(ASTNodeVisitor visitor) {
+        visitor.visit(this);
+    }
+    public void WasmFunction.accept(ASTNodeVisitor visitor) {
+        visitor.visit(this);
+    }
+    public void Table.accept(ASTNodeVisitor visitor) {
+        visitor.visit(this);
+    }
+    public void ElementSegment.accept(ASTNodeVisitor visitor) {
+        visitor.visit(this);
+    }
+    public void TypeUse.accept(ASTNodeVisitor visitor) {
+            visitor.visit(this);
+    }
+    public void Memory.accept(ASTNodeVisitor visitor) {
+        visitor.visit(this);
+    }
+    public void DataSegment.accept(ASTNodeVisitor visitor) {
+        visitor.visit(this);
+    }
+    public void Export.accept(ASTNodeVisitor visitor) {
+        visitor.visit(this);
+    }
+    public void Import.accept(ASTNodeVisitor visitor) {
+        visitor.visit(this);
+    }
+    public void FuncType.accept(ASTNodeVisitor visitor) {
+        visitor.visit(this);
+    }
+    public String Const.pp() {
+        int val = this.getValue();
+        matwably.ast.ValueType type = this.getValueType();
+        return type.toString()+".const "+val;
+    }
+    public void Module.addNode(StringBuffer temp){
+
+        temp.append("hello");
+    }
+    public class PrettyPrinter implements ASTNodeVisitor {
+
+        private StringBuffer sb = new StringBuffer();
+        private Module module;
+        private int indentation_level = 0;
+        public PrettyPrinter(Module mod) {
+            this.module = mod;
+        }
+        public void visit(Module mod) {
+            sb.append("( module ");
+            if( mod.hasIdentifier() ) {
+                sb.append("$");
+                sb.append(mod.getIdentifier().getName());
+                sb.append("\n");
+            }
+            indentation_level ++;
+
+            if( mod.hasStart() ) {
+                mod.getStart().accept(this);
+            }
+            if ( mod.hasFunctions() ){
+                mod.getFunctionsList().forEach((WasmFunction func )->{
+                     func.accept(this);
+                });
+            }
+            sb.append(")\n");
+        }
+        public String display() {
+            this.visit(this.module);
+            return sb.toString();
+        }
+        private void indent() {
+            for(int i = 0;i < indentation_level;i++) sb.append("    ");
+        }
+        private String makeIdentifier(String name) {
+            return "$"+name;
+
+        }
+        public void visit(TypeUse use) {
+            if(use.hasIdentifier()) sb.append("$"+use.getIdentifier().getName());
+            sb.append(" ");
+            use.getType().accept(this);
+        }
+        public void visit(WasmFunction func) {
+
+            indent();
+            sb.append("(func ");
+            if(func.hasIdentifier())
+            {
+                sb.append("$"+func.getIdentifier().getName()+" ");
+            }
+            if(func.hasParameters())
+            {
+                func.getParametersList().forEach((TypeUse use)->{
+                    sb.append("(param ");
+                    use.accept(this);
+                    sb.append(") ");
+                });
+            }
+            List<ValueType> return_list = func.getReturnType();
+            int size_return = return_list.getNumChild();
+            IntStream.range(0,size_return )
+                .forEach( idx ->{
+                if(idx == 0) sb.append("(result ");
+                sb.append(" "+return_list.getChild(idx).toString());
+                if( idx == size_return - 1 ) sb.append(")\n");
+            });
+            indentation_level ++;
+            Expression exp = func.getBody();
+            if( exp != null && exp.hasInstructions() ) {
+                exp.getInstructionsList().forEach((Instruction inst)->{
+
+                });
+            }
+            indentation_level --;
+            indent();
+            sb.append(")\n");
+        }
+        public void visit(ValueType val){
+            sb.append(val.toString());
+        }
+        public void visit(Table tab) {
+g
+        }
+        public void visit(Global global) {
+
+        }
+        public void visit(ElementSegment element_segment) {
+
+        }
+        public void visit(Memory mem) {
+
+        }
+        public void visit(DataSegment data_seg) {
+
+        }
+        public void visit(Export exp) {
+
+        }
+        public void visit(Import imp) {
+
+        }
+        public void visit(Start start) {
+            indent();
+            sb.append("(start ");
+            sb.append(start.getFunctionIndex()
+                .match((Index.Identifier id)-> id.value,
+                        (Index.Numeric num) -> ""+num.value));
+            sb.append(")\n");
+        }
+        public void visit(FuncType type) {
+
+        }
+
+
+    }
+}

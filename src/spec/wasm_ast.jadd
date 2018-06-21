@@ -1,0 +1,37 @@
+import java.security.InvalidParameterException;
+import java.util.function.Function;
+aspect AST {
+
+    public abstract class Index {
+        public abstract <T> T match(Function<Identifier, T> funcid, Function<Numeric, T> funcnum );
+        public static final class Identifier extends Index {
+            String value;
+
+            public Identifier(String str) {
+                this.value = str;
+            }
+            public <T> T match(Function<Identifier, T> funcid, Function<Numeric, T> funcnum) {
+                return funcid.apply(this);
+            }
+        }
+        public static final class Numeric extends Index {
+            int value;
+
+            public Numeric(int val) {
+                if(val < 0) throw new InvalidParameterException("Numeric index must be positive");
+                this.value = val;
+            }
+            public <T> T match(Function<Identifier, T> funcid, Function<Numeric, T> funcnum ){
+                return funcnum.apply(this);
+            }
+        }
+    }
+    Expression implements ReturnType;
+    ConstantExpression implements ReturnType;
+
+    interface ReturnType {
+        List<ValueType> return_type = new List<>();
+        List<ValueType> getReturnType();
+    }
+
+}

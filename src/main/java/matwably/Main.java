@@ -3,6 +3,8 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
 import com.beust.jcommander.Parameters;
+import matwably.ast.*;
+import matwably.ast.List;
 import natlab.tame.BasicTamerTool;
 import natlab.tame.tir.*;
 import natlab.tame.valueanalysis.IntraproceduralValueAnalysis;
@@ -14,14 +16,49 @@ import natlab.toolkits.filehandling.FileFile;
 import natlab.toolkits.filehandling.GenericFile;
 import natlab.toolkits.path.FileEnvironment;
 
+import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
+    enum ValueTypes {
+        i32,
+        i64,
+        f32,
+        f64;
+
+
+//        @Override
+//        public String toString() {
+//            return name();
+//        }
+    }
+    private static void log(Object str){
+        System.out.println(str.toString());
+    }
     public static void main(String[] argv)
     {
+        Module mod = new Module();
+        mod.setIdentifier(new Identifier("done"));
+        TypeUse type_use = new TypeUse(new Opt<>(new Identifier("i")), new ValueType.F32());
+        TypeUse type_use2 = new TypeUse(new Opt<>(new Identifier("j")), new ValueType.F32());
+
+        List<TypeUse> locals = new List<>();
+        List<ValueType> values = new List<>();
+        Expression body = new Expression();
+        values.add(new ValueType.F32());
+        values.add(new ValueType.F64());
+        locals.add(type_use);
+        locals.add(type_use2);
+        WasmFunction func = new WasmFunction(new Opt<>(new Identifier("david")),locals, locals, values,body);
+        mod.addFunctions(func);
+        PrettyPrinter pretty = new PrettyPrinter(mod);
+        log(pretty.display()+"dasdas");
+//        List<Instruction> da = func.getBody().getExpression().getInstructionsList();
+//        func.addChild();
+        //System.out.println(ValueType.I32.class);
         CommandLineOptions opts = new CommandLineOptions();
         JCommander optParse = null;
         try{
@@ -47,7 +84,7 @@ public class Main {
 //        for(byte b : byteBuffer.array()){
 //            System.out.println(b);
 //        }
-        Double a = new Double(1321313);
+        Double a = 1321313.0;
         double d = 1321313.99999;
         byte[] output = new byte[8];
         long lng = Double.doubleToLongBits(d);
@@ -64,7 +101,7 @@ public class Main {
 @Parameters(separators = " ")
 final class CommandLineOptions {
     @Parameter
-    public List<String> input_files = new ArrayList<String>();
+    public ArrayList<String> input_files = new ArrayList<String>();
 
     @Parameter(names = {"-h","--help"}, hidden = true)
     public boolean help = false;

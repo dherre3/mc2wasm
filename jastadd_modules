@@ -1,8 +1,8 @@
 module("matwably") {
     java {
-        basedir "."
-        include "main/**/*.java"
-        include "gen/**/*.java"
+        basedir "src/main/java/"
+        include "**/*.java"
+        include "**/*.java"
     }
 
     jastadd {

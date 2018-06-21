@@ -1,43 +1,44 @@
 // Module
-Module ::= [Name] Function* Global* [Start] Table* ElementSegment* Memory* DataSegment* Export* Import* Type:FuncType*;
-
+Module ::= [Identifier] Functions: WasmFunction* [Start] Type:FuncType* /*Global*  Table* ElementSegment* Memory* DataSegment* Export* Import* */;
+abstract TopDeclaration;
 // Top Level Declarations
-Function ::= [Name] <ReturnType:java.util.List<matwably.ast.ValueType>>  Local* Body;
-Global ::= GlobalType Init:ConstantExpression;
-Table ::= [Name] <TableType:TableType>; // (table $name? limit: max?, min? elemtype:["anyfunc"]
-Memory::=  [Name] MemoryType;
-DataSegment ::= <MemoryIndex:int> offset:ConstantExpression <Init:String>;
-ElementSegment ::= <TableIndex:int> Offset:ConstantExpression <Init:java.util.List<Integer>>;
-Start ::= <FunctionIndex: int>;
-Export ::= <Name:String> <Desc:matwably.ast.ExportDesc>;
-Import ::= <ModuleName> <Name> <Desc: ImportDesc>;
-
+Global: TopDeclaration ::= GlobalType Init:ConstantExpression;
+Table: TopDeclaration ::= [Identifier] <TableType:TableType>; // (table $name? limit: max?, min? elemtype:["anyfunc"]
+Memory: TopDeclaration::=  [Identifier] MemoryType;
+DataSegment: TopDeclaration ::= <MemoryIndex:int> offset:ConstantExpression <Init:String>;
+ElementSegment: TopDeclaration ::= <TableIndex:int> Offset:ConstantExpression <Init:java.util.List<Integer>>;
+Start: TopDeclaration ::= <FunctionIndex: matwably.ast.Index>;
+Export: TopDeclaration ::= <Name:String> <Desc:matwably.ast.ExportDesc>;
+Import: TopDeclaration ::= <ModuleName> <Name> <Desc: ImportDesc>;
+WasmFunction: TopDeclaration ::= [Identifier] Locals:TypeUse* Parameters: TypeUse*
+    <ReturnType:List<ValueType>> Body:Expression;
+TypeUse ::= [Identifier] <Type:ValueType>;
 // Types
 MemoryType::= Limit;
 GlobalType ::= <Mut: matwably.ast.Mut> <ValueType:matwably.ast.ValueType>;
 TableType::= ElemType:AnyFunc Limits:Limit; //
 ValType::= <Type:matwably.ast.ValueType>;
-FuncType ::= <LocalType: java.util.List<matwably.ast.ValueType>> <ReturnType:java.util.List<matwably.ast.ValueType>>;
+FuncType: TopDeclaration ::= <LocalType: java.util.List<matwably.ast.ValueType>> <ReturnType:java.util.List<matwably.ast.ValueType>>;
 
 // Expressions
-Expression ::= Instructions: Instruction* <ReturnType:java.util.List<matwably.ast.ValueType>>;
-ConstantExpression ::= Instructions: ConstantInstruction* <ReturnType:java.util.List<matwably.ast.ValueType>>;
+Expression ::= Instructions: Instruction*;
+ConstantExpression ::= Instructions: Const*;
 
 // Function
 Local ::= <Name:String><Type: matwably.ast.ValueType>;
-Body ::= Expression;
 
 // Instructions
 abstract Instruction;
 abstract ConstantInstruction: Instruction;
 Const:ConstantInstruction ::= <Value:int><ValueType:matwably.ast.ValueType>;
-Get_Local: ConstantInstruction ::= <Index: int>[Name];
-Set_local: ConstantInstruction ::= <Index: int>[Name];
-Get_global: ConstantInstruction ::= <Index: int>[Name];
-Set_global: ConstantInstruction ::= <Index: int>[Name];
+Get_Local: Instruction ::= <Index: int>[Identifier];
+Set_local: Instruction ::= <Index: int>[Identifier];
+Get_global: Instruction ::= <Index: int>[Identifier];
+Set_global: Instruction ::= <Index: int>[Identifier];
+
 
 // Attributes
 AnyFunc;
 Limit ::= <Min:int> <Max:int>;
-Name ::= <Value>;
+Identifier ::= <Name>;
 

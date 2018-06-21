@@ -14,6 +14,7 @@ buildscript {
         classpath 'org.jastadd:jastaddgradle:1.13.0'
     }
 }
+
 //TODO Deal automatically with downloading the mclab-core dependency
 repositories {
     flatDir {
@@ -27,10 +28,9 @@ jastadd {
     module = "matwably"
 
     astPackage = "matwably.ast"
-
 //    scanner.genDir = "src/gen/AST"
 //    parser.name = "StateMachineParser"
-//    parser.genDir = "src/gen/AST"
+//    parser.genDir = "src/gen"
 }
 dependencies {
     // https://mvnrepository.com/artifact/org.jastadd/jastaddgradle

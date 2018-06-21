@@ -6,6 +6,7 @@ public abstract class ImportDesc {
     private  ImportDesc() {}
     public abstract <T> T match(Function<FuncImport, T> func_imp,Function<GlobalImport, T> global_imp,
                        Function<TableImport, T> table_imp,Function<MemoryImport, T> mem_imp);
+
     public static final class FuncImport extends ImportDesc {
         int funcidx;
         public FuncImport(int i) {
