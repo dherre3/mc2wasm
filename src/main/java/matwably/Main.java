@@ -23,18 +23,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
-    enum ValueTypes {
-        i32,
-        i64,
-        f32,
-        f64;
 
-
-//        @Override
-//        public String toString() {
-//            return name();
-//        }
-    }
     private static void log(Object str){
         System.out.println(str.toString());
     }

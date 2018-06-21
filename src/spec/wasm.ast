@@ -22,7 +22,7 @@ FuncType: TopDeclaration ::= <LocalType: java.util.List<matwably.ast.ValueType>>
 
 // Expressions
 Expression ::= Instructions: Instruction*;
-ConstantExpression ::= Instructions: Const*;
+ConstantExpression ::= <Instructions: List<ConstLiteral>>;
 
 // Function
 Local ::= <Name:String><Type: matwably.ast.ValueType>;
@@ -30,7 +30,7 @@ Local ::= <Name:String><Type: matwably.ast.ValueType>;
 // Instructions
 abstract Instruction;
 abstract ConstantInstruction: Instruction;
-Const:ConstantInstruction ::= <Value:int><ValueType:matwably.ast.ValueType>;
+//Const:ConstantInstruction ::= <Value:Number><ValueType:matwably.ast.ValueType>;
 Get_Local: Instruction ::= <Index: int>[Identifier];
 Set_local: Instruction ::= <Index: int>[Identifier];
 Get_global: Instruction ::= <Index: int>[Identifier];

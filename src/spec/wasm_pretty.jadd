@@ -21,18 +21,12 @@ aspect PrettyPrinter {
         public void visit(FuncType type);
         public void visit(TypeUse type);
         public void visit(ValueType type);
-
+        public void visit(Clz inst);
+        public void visit(IntAdd inst);
     }
     TypeUse implements IASTNode;
 
 
-    public abstract String ConstantInstruction.pp();
-    public String Global.pp() {
-        this.getInit().getInstructionsList().forEach((Instruction a)->{
-            //return a.pp();
-        });
-        return "(global (";
-    }
     public void Start.accept(ASTNodeVisitor visitor){
         visitor.visit(this);
     }
@@ -69,11 +63,7 @@ aspect PrettyPrinter {
     public void FuncType.accept(ASTNodeVisitor visitor) {
         visitor.visit(this);
     }
-    public String Const.pp() {
-        int val = this.getValue();
-        matwably.ast.ValueType type = this.getValueType();
-        return type.toString()+".const "+val;
-    }
+
     public void Module.addNode(StringBuffer temp){
 
         temp.append("hello");
@@ -160,7 +150,7 @@ aspect PrettyPrinter {
             sb.append(val.toString());
         }
         public void visit(Table tab) {
-g
+
         }
         public void visit(Global global) {
 
@@ -178,6 +168,12 @@ g
 
         }
         public void visit(Import imp) {
+
+        }
+        public void visit(Clz inst) {
+
+        }
+        public void visit(IntAdd inst) {
 
         }
         public void visit(Start start) {

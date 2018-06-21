@@ -10,7 +10,10 @@ public abstract class ValueType extends ASTNode<ASTNode> implements IASTNode{
     public abstract <T> T match(Function<I32, T> i32,Function<I64, T> i64,Function<F32, T> f32,Function<F64, T> f64);
     public abstract short size();
     public abstract String toString();
-    public static final class I32 extends ValueType {
+    static abstract class IntValueType extends ValueType {}
+    static abstract class FloatValueType extends ValueType {}
+
+    public static final class I32 extends IntValueType {
         public final int type = 1;
         public I32(){}
         public <T> T match(Function<I32, T> i32,Function<I64, T> i64,Function<F32, T> f32,Function<F64, T> f64) {
@@ -27,7 +30,7 @@ public abstract class ValueType extends ASTNode<ASTNode> implements IASTNode{
             return 4;
         }
     }
-    public static final class I64 extends ValueType {
+    public static final class I64 extends IntValueType {
         public final int type = 2;
         public I64(){}
 
@@ -45,7 +48,7 @@ public abstract class ValueType extends ASTNode<ASTNode> implements IASTNode{
             return 8;
         }
     }
-    public static final class F32 extends ValueType {
+    public static final class F32 extends FloatValueType {
         public final int type = 3;
         public F32(){}
 
@@ -63,7 +66,7 @@ public abstract class ValueType extends ASTNode<ASTNode> implements IASTNode{
             return 4;
         }
     }
-    public static final class F64 extends ValueType {
+    public static final class F64 extends FloatValueType {
         public final int type =4;
         public F64(){}
 
